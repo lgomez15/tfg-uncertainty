@@ -87,6 +87,21 @@ All notebooks follow a consistent structure:
   - Country-by-country analysis
   - ~140 quarterly observations per country
 
+### 08. Bitcoin Daily (`08_btc_daily_exploration.ipynb`)
+- **Dataset**: `btc-daily.csv`
+- **Description**: Daily Bitcoin price data (Spanish format) from 2013 to present
+- **Key Features**:
+  - Data cleaning for Spanish number format (comma as decimal separator)
+  - OHLC (Open, High, Low, Close) analysis
+  - **Log scale visualization** (essential for exponential growth)
+  - Daily returns and volatility analysis
+  - Volume analysis with suffix handling (K, M, B)
+  - Moving averages (50-day, 200-day)
+  - Yearly performance breakdown
+  - Bull/Bear market identification
+  - Total return calculation
+  - ~4,415 trading days (12+ years of data)
+
 ## Excel to CSV Conversions
 
 Three notebooks include automatic conversion from Excel to CSV format:
@@ -97,7 +112,7 @@ Three notebooks include automatic conversion from Excel to CSV format:
 | 06 | `cnepu-daily.xlsx` | `cnepu-daily.csv` |
 | 07 | `migration-fear.xlsx` | `migration-fear.csv` |
 
-**Note**: The CSV files are automatically saved to the `datasets/raw` directory when you run the respective notebooks.
+**Note**: The CSV files are automatically saved to the `data/raw` directory when you run the respective notebooks.
 
 ## Running the Notebooks
 
@@ -131,6 +146,7 @@ jupyter notebook
 | CEPU China Mainland | XLSX→CSV | Monthly | 1949-present | ~900 | 1 index |
 | CNEPU Daily | XLSX→CSV | Daily | 2000-present | ~9,000 | 1 index |
 | Migration Fear | XLSX→CSV | Quarterly | 1990-present | ~140 | 8 indices (4 countries × 2 types) |
+| **Bitcoin Daily** | CSV | Daily | 2013-present | ~4,415 | OHLC + Volume |
 
 ## Key Insights
 
@@ -143,7 +159,8 @@ jupyter notebook
 ### Market Indices
 - **CSI 300**: Chinese stock market performance
 - **S&P 500**: US stock market performance
-- Both indices can be correlated with uncertainty measures
+- **Bitcoin**: Cryptocurrency market performance and volatility
+- All indices can be correlated with uncertainty measures
 
 ### Migration Indices
 - **Multi-country comparison**: UK, Germany, USA, France
@@ -181,5 +198,5 @@ After exploring the datasets, you can:
 ---
 
 **Created**: 2026-02-03  
-**Last Updated**: 2026-02-03  
+**Last Updated**: 2026-02-03 (Added Bitcoin Daily dataset)  
 **Author**: Automated EDA Pipeline
