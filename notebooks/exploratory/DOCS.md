@@ -102,6 +102,20 @@ All notebooks follow a consistent structure:
   - Total return calculation
   - ~4,415 trading days (12+ years of data)
 
+### 09. Gold Daily (`09_gold_daily_exploration.ipynb`)
+- **Dataset**: `gold-daily.csv`
+- **Description**: Daily gold price data (Spanish format) from 2005 to present
+- **Key Features**:
+  - Data cleaning for Spanish number format (comma as decimal separator)
+  - OHLC (Open, High, Low, Close) analysis
+  - Daily returns and volatility analysis
+  - Volume analysis with suffix handling (K, M, B)
+  - Moving averages (50-day, 200-day)
+  - Yearly performance breakdown
+  - **Crisis periods analysis** (2008 Financial Crisis, European Debt Crisis, COVID-19)
+  - Safe haven asset characteristics
+  - ~4,966 trading days (20 years of data)
+
 ## Excel to CSV Conversions
 
 Three notebooks include automatic conversion from Excel to CSV format:
@@ -147,6 +161,7 @@ jupyter notebook
 | CNEPU Daily | XLSX→CSV | Daily | 2000-present | ~9,000 | 1 index |
 | Migration Fear | XLSX→CSV | Quarterly | 1990-present | ~140 | 8 indices (4 countries × 2 types) |
 | **Bitcoin Daily** | CSV | Daily | 2013-present | ~4,415 | OHLC + Volume |
+| **Gold Daily** | CSV | Daily | 2005-present | ~4,966 | OHLC + Volume |
 
 ## Key Insights
 
@@ -160,6 +175,7 @@ jupyter notebook
 - **CSI 300**: Chinese stock market performance
 - **S&P 500**: US stock market performance
 - **Bitcoin**: Cryptocurrency market performance and volatility
+- **Gold**: Precious metal and safe haven asset
 - All indices can be correlated with uncertainty measures
 
 ### Migration Indices
@@ -170,13 +186,13 @@ jupyter notebook
 ## Common Analysis Patterns
 
 All notebooks include:
-- ✅ Time series visualization
-- ✅ Distribution analysis (histograms, box plots)
-- ✅ Descriptive statistics
-- ✅ Missing values check
-- ✅ Trend analysis (moving averages where applicable)
-- ✅ Key events/outliers identification
-- ✅ Summary of findings
+- Time series visualization
+- Distribution analysis (histograms, box plots)
+- Descriptive statistics
+- Missing values check
+- Trend analysis (moving averages where applicable)
+- Key events/outliers identification
+- Summary of findings
 
 ## Next Steps
 
@@ -198,5 +214,5 @@ After exploring the datasets, you can:
 ---
 
 **Created**: 2026-02-03  
-**Last Updated**: 2026-02-03 (Added Bitcoin Daily dataset)  
+**Last Updated**: 2026-02-04 (Added Bitcoin and Gold Daily datasets)  
 **Author**: Automated EDA Pipeline
