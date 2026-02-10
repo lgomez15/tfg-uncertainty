@@ -11,6 +11,7 @@ tfg-uncertainty/
 │   ├── raw/                    # Original, immutable data (8 datasets)
 │   │   └── README.md           # Dataset descriptions and citations
 │   └── processed/              # Cleaned and transformed data
+│       └── README.md           # Processed data dictionary
 ├── logs/                       # Application and process logs
 ├── models/                     # Saved trained models (.pkl, .h5, etc.)
 ├── notebooks/                  # Jupyter notebooks for experimentation
@@ -24,7 +25,7 @@ tfg-uncertainty/
 │   │       │   └── README.md   # US-focused analysis docs
 │   │       └── geopolitics_monthly/
 │   │           └── README.md   # Geopolitical analysis docs
-│   ├── cleaning/               # Data preparation logic
+│   ├── cleaning_and_preparation/  # Data cleaning and merging pipelines
 │   └── training/               # Model training and evaluation
 ├── references/                 # Data dictionaries, manuals, and papers
 ├── src/                        # Modular Python source code
@@ -122,16 +123,21 @@ jupyter lab
 ### Data Processing
 - **Individual dataset explorations**: `notebooks/exploratory/raw/`
 - **Cross-dataset analyses**: `notebooks/exploratory/merged/`
-- **Data cleaning**: `notebooks/cleaning/`
+- **Data cleaning and preparation**: `notebooks/cleaning_and_preparation/`
 - **Model training**: `notebooks/training/`
 
 ## Project Workflow
 
 1. **Data Collection**: Raw datasets stored in `data/raw/` with full citations
-2. **Exploration**: Analyze individual datasets in `notebooks/exploratory/raw/`
-3. **Merging**: Combine datasets for cross-analysis in `notebooks/exploratory/merged/`
-4. **Cleaning**: Prepare data for modeling in `notebooks/cleaning/`
-5. **Training**: Build and evaluate models in `notebooks/training/`
+2. **Individual Exploration**: Analyze individual datasets in `notebooks/exploratory/raw/`
+3. **Phase 1 - Data Cleaning**: Merge and clean datasets in `notebooks/cleaning_and_preparation/`
+   - Create unified daily dataframes with calculated features
+   - Output: `data/processed/merged_daily_features.csv`
+4. **Phase 2 - Exploratory Analysis**: Study relationships in `notebooks/exploratory/merged/`
+   - Descriptive statistics, correlations, quantile analysis
+   - Lead-lag relationships and Granger causality
+   - Output: Modeling recommendations
+5. **Phase 3 - Model Training**: Build and evaluate models in `notebooks/training/`
 6. **Deployment**: Save models to `models/` directory
 
 ## Documentation
