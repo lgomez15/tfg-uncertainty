@@ -66,38 +66,8 @@ Comprehensive exploratory analysis with the following sections:
 - Bitcoin volatility shows weaker correlation with EPU
 - Gold may serve as safe haven during high EPU periods
 
-## Modeling Recommendations
-
-### 1. Feature Selection
-- **Primary**: EPU level and ΔEPU
-- **Lagged**: EPU_{t-1}, EPU_{t-2}, EPU_{t-3}
-- **Regime**: EPU_MA30, EPU_Std30
-
-### 2. Target Selection
-- **Recommended**: 30-day volatility (strongest relationships)
-- **Alternative**: 7-day (short-term), 90-day (long-term)
-- **Separate models**: Asset-specific approaches
-
-### 3. Model Complexity
-- **Linear baseline**: OLS regression
-- **Non-linear**: Quantile regression, polynomial features
-- **Regime-switching**: Time-varying relationships
-
-### 4. Temporal Dynamics
-- **Time-series**: VAR, GARCH for volatility clustering
-- **ML with lags**: Random Forest, XGBoost
-- **Validation**: Walk-forward cross-validation
-
-## Next Steps
-
-1. **Feature engineering**: Create lagged features and interactions
-2. **Model development**: Linear regression baseline
-3. **Model comparison**: Test multiple model types
-4. **Validation**: Time-series cross-validation
-5. **Interpretation**: Feature importance and coefficients
-
 ---
 
 **Created**: 2026-02-10  
 **Input**: `data/processed/merged_daily_features.csv`  
-**Status**: ✓ Complete and ready for modeling
+**Status**: Complete and ready for modeling
