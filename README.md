@@ -6,42 +6,50 @@ This repository contains the code and data for the Final Degree Project (TFG) fo
 
 ```text
 tfg-uncertainty/
-├── config/                 # Configuration files (YAML, JSON, etc.)
-├── data/                   # Project data
-│   ├── raw/                # Original, immutable data (10 datasets)
-│   └── processed/          # Cleaned and transformed data
-├── logs/                   # Application and process logs
-├── models/                 # Saved trained models (.pkl, .h5, etc.)
-├── notebooks/              # Jupyter notebooks for experimentation
-│   ├── exploratory/        # Exploratory Data Analysis (EDA)
-│   │   ├── raw/            # Individual dataset explorations (8 notebooks)
-│   │   └── merged/         # Cross-dataset analyses (3 notebooks)
-│   ├── cleaning/           # Data preparation logic
-│   └── training/           # Model training and evaluation
-├── references/             # Data dictionaries, manuals, and papers
-├── src/                    # Modular Python source code
-├── .gitignore              # Git ignore rules
-├── requirements.txt        # Project dependencies
-└── README.md               # This file
+├── config/                     # Configuration files (YAML, JSON, etc.)
+├── data/                       # Project data
+│   ├── raw/                    # Original, immutable data (8 datasets)
+│   │   └── README.md           # Dataset descriptions and citations
+│   └── processed/              # Cleaned and transformed data
+├── logs/                       # Application and process logs
+├── models/                     # Saved trained models (.pkl, .h5, etc.)
+├── notebooks/                  # Jupyter notebooks for experimentation
+│   ├── exploratory/            # Exploratory Data Analysis (EDA)
+│   │   ├── raw/                # Individual dataset explorations (8 notebooks)
+│   │   │   └── README.md       # Detailed EDA documentation
+│   │   └── merged/             # Cross-dataset analyses (3 themes)
+│   │       ├── china_uncertainty_markets/
+│   │       │   └── README.md   # China-focused analysis docs
+│   │       ├── us_uncertainty_markets/
+│   │       │   └── README.md   # US-focused analysis docs
+│   │       └── geopolitics_monthly/
+│   │           └── README.md   # Geopolitical analysis docs
+│   ├── cleaning/               # Data preparation logic
+│   └── training/               # Model training and evaluation
+├── references/                 # Data dictionaries, manuals, and papers
+├── src/                        # Modular Python source code
+├── .gitignore                  # Git ignore rules
+├── requirements.txt            # Project dependencies
+└── README.md                   # This file
 ```
 
 ## Datasets
 
-The project analyzes **10 datasets** covering uncertainty indices and market performance:
+The project analyzes **8 datasets** covering uncertainty indices and market performance:
 
 ### Uncertainty Indices
 - **US EPU Daily** (1985-present): US Economic Policy Uncertainty Index
-- **CSI 300 Daily** (2005-present): Chinese stock market index
-- **S&P 500 Daily** (2020-present): US stock market index
 - **US-China Tension** (1993-2024): Monthly bilateral tension index
 - **CEPU China Mainland** (1949-present): China Economic Policy Uncertainty from newspapers
 - **Migration Fear** (1990-present): Quarterly migration-related EPU for UK, Germany, USA, France
 
-### Market Assets
+### Market Indices & Assets
+- **CSI 300 Daily** (2005-present): Chinese stock market index
+- **S&P 500 Daily** (2020-present): US stock market index
 - **Bitcoin Daily** (2013-present): Cryptocurrency price data
 - **Gold Daily** (2005-present): Precious metal price data
 
-All datasets are stored in `data/raw/` and explored in `notebooks/exploratory/raw/`.
+📄 **See [`data/raw/README.md`](data/raw/README.md) for detailed dataset descriptions, citations, and sources.**
 
 ## Exploratory Notebooks
 
@@ -55,13 +63,26 @@ All datasets are stored in `data/raw/` and explored in `notebooks/exploratory/ra
 7. `07_btc_daily_exploration.ipynb` - Bitcoin Price Analysis
 8. `08_gold_daily_exploration.ipynb` - Gold Price Analysis
 
-### Merged Analyses (`notebooks/exploratory/merged/`)
-Cross-dataset analyses combining multiple sources:
-- **China Uncertainty & Markets**: Combines China EPU, CSI 300, and US-China tension
-- **US Uncertainty & Markets**: Combines US EPU, S&P 500, Bitcoin, and Gold
-- **Geopolitics Monthly**: Monthly-level geopolitical and uncertainty analysis
+📄 **See [`notebooks/exploratory/raw/README.md`](notebooks/exploratory/raw/README.md) for detailed notebook documentation.**
 
-See `notebooks/exploratory/raw/DOCS.md` for detailed documentation.
+### Merged Analyses (`notebooks/exploratory/merged/`)
+
+Cross-dataset analyses combining multiple sources by theme:
+
+#### 1. China Uncertainty & Markets
+Combines China EPU, CSI 300, and US-China tension to analyze the relationship between Chinese economic policy uncertainty and market performance.
+
+📄 **See [`notebooks/exploratory/merged/china_uncertainty_markets/README.md`](notebooks/exploratory/merged/china_uncertainty_markets/README.md)**
+
+#### 2. US Uncertainty & Markets
+Combines US EPU, S&P 500, Bitcoin, and Gold to study how US economic policy uncertainty affects traditional and alternative assets.
+
+📄 **See [`notebooks/exploratory/merged/us_uncertainty_markets/README.md`](notebooks/exploratory/merged/us_uncertainty_markets/README.md)**
+
+#### 3. Geopolitics Monthly
+Monthly-level analysis of geopolitical tensions and their impact on global markets and uncertainty indices.
+
+📄 **See [`notebooks/exploratory/merged/geopolitics_monthly/README.md`](notebooks/exploratory/merged/geopolitics_monthly/README.md)**
 
 ## Getting Started
 
@@ -99,18 +120,27 @@ jupyter lab
 ```
 
 ### Data Processing
-- Individual dataset explorations: `notebooks/exploratory/raw/`
-- Cross-dataset analyses: `notebooks/exploratory/merged/`
-- Data cleaning: `notebooks/cleaning/`
-- Model training: `notebooks/training/`
+- **Individual dataset explorations**: `notebooks/exploratory/raw/`
+- **Cross-dataset analyses**: `notebooks/exploratory/merged/`
+- **Data cleaning**: `notebooks/cleaning/`
+- **Model training**: `notebooks/training/`
 
 ## Project Workflow
 
-1. **Exploration**: Analyze individual datasets in `notebooks/exploratory/raw/`
-2. **Merging**: Combine datasets for cross-analysis in `notebooks/exploratory/merged/`
-3. **Cleaning**: Prepare data for modeling in `notebooks/cleaning/`
-4. **Training**: Build and evaluate models in `notebooks/training/`
-5. **Deployment**: Save models to `models/` directory
+1. **Data Collection**: Raw datasets stored in `data/raw/` with full citations
+2. **Exploration**: Analyze individual datasets in `notebooks/exploratory/raw/`
+3. **Merging**: Combine datasets for cross-analysis in `notebooks/exploratory/merged/`
+4. **Cleaning**: Prepare data for modeling in `notebooks/cleaning/`
+5. **Training**: Build and evaluate models in `notebooks/training/`
+6. **Deployment**: Save models to `models/` directory
+
+## Documentation
+
+- **Dataset Sources**: [`data/raw/README.md`](data/raw/README.md)
+- **EDA Notebooks**: [`notebooks/exploratory/raw/README.md`](notebooks/exploratory/raw/README.md)
+- **China Analysis**: [`notebooks/exploratory/merged/china_uncertainty_markets/README.md`](notebooks/exploratory/merged/china_uncertainty_markets/README.md)
+- **US Analysis**: [`notebooks/exploratory/merged/us_uncertainty_markets/README.md`](notebooks/exploratory/merged/us_uncertainty_markets/README.md)
+- **Geopolitics**: [`notebooks/exploratory/merged/geopolitics_monthly/README.md`](notebooks/exploratory/merged/geopolitics_monthly/README.md)
 
 ## References
 
@@ -121,4 +151,4 @@ Academic papers and documentation are stored in `references/`:
 
 ## License
 
-This project is part of a Final Degree Project (TFG) at [University Name].
+This project is part of a Final Degree Project (TFG).
