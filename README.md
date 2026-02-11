@@ -132,7 +132,7 @@ jupyter lab
 2. **Individual Exploration**: Analyze individual datasets in `notebooks/exploratory/raw/`
 3. **Phase 1 - Data Cleaning**: Merge and clean datasets in `notebooks/cleaning_and_preparation/`
    - Create unified daily dataframes with calculated features
-   - Output: `data/processed/merged_daily_features.csv`
+   - Output: `data/processed/usepu_assets_daily_features.csv`
 4. **Phase 2 - Exploratory Analysis**: Study relationships in `notebooks/exploratory/merged/`
    - Descriptive statistics, correlations, quantile analysis
    - Lead-lag relationships and Granger causality

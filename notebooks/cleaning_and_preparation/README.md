@@ -15,7 +15,7 @@ This directory contains notebooks for **Phase 1: Data Cleaning and Preparation**
 - `data/raw/btc-daily.csv` - Bitcoin Prices (2013-present)
 
 **Output**:
-- `data/processed/merged_daily_features.csv` - Unified daily dataset with all features
+- `data/processed/usepu_assets_daily_features.csv` - Unified daily dataset with all features
 
 **Processing Steps**:
 

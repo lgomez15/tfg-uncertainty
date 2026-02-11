@@ -11,7 +11,7 @@ This directory contains the **Phase 2 exploratory analysis** of relationships be
 Comprehensive exploratory analysis with the following sections:
 
 #### 1. Data Loading
-- Loads processed data from `data/processed/merged_daily_features.csv`
+- Loads processed data from `data/processed/usepu_assets_daily_features.csv`
 - Validates data quality and checks for missing values
 
 #### 2. Descriptive Statistics
@@ -69,5 +69,5 @@ Comprehensive exploratory analysis with the following sections:
 ---
 
 **Created**: 2026-02-10  
-**Input**: `data/processed/merged_daily_features.csv`  
+**Input**: `data/processed/usepu_assets_daily_features.csv`  
 **Status**: Complete and ready for modeling
