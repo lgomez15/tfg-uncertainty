@@ -1,68 +1,58 @@
 # Data Cleaning and Preparation
 
-This directory contains notebooks for **Phase 1: Data Cleaning and Preparation** - merging raw datasets and creating feature-rich processed dataframes for analysis and modeling.
+This directory contains notebooks for **Phase 1: Data Cleaning and Preparation** — merging raw datasets and creating feature-rich processed dataframes for analysis and modeling.
 
 ## Notebooks
 
 ### `01_us_assets_cleaning_and_preparation.ipynb`
 
-**Purpose**: Merge US EPU, S&P 500, Gold, and Bitcoin datasets into a unified daily dataframe with calculated returns and volatility features.
+**Purpose**: Merge US EPU, S&P 500, Gold, and Bitcoin datasets into a unified daily dataframe.
 
-**Input Datasets**:
-- `data/raw/us-epu-daily.csv` - US Economic Policy Uncertainty (1985-present)
-- `data/raw/sp500-daily.csv` - S&P 500 Stock Index (2004-present)
-- `data/raw/gold-daily.csv` - Gold Prices (2005-present)
-- `data/raw/btc-daily.csv` - Bitcoin Prices (2013-present)
+**Input**:
+- `data/raw/us-epu-daily.csv` — US EPU (1985–present)
+- `data/raw/sp500-daily.csv` — S&P 500 (2004–present)
+- `data/raw/gold-daily.csv` — Gold (2005–present)
+- `data/raw/btc-daily.csv` — Bitcoin (2013–present)
 
-**Output**:
-- `data/processed/usepu_assets_daily_features.csv` - Unified daily dataset with all features
+**Output**: `data/processed/usepu_assets_daily_features.csv` — 29 columns, ~2,200 daily observations
 
 **Processing Steps**:
+1. Load and clean individual datasets (handle Spanish date/number formats)
+2. Calculate EPU features: `ΔEPU`, `EPU_MA30`, `EPU_Std30`
+3. Calculate asset features: log returns, rolling volatility (7d, 30d, 90d)
+4. Inner join on Date → unified daily dataframe
+5. Data quality validation
 
-1. **Load and Clean Individual Datasets**
-   - Parse dates (handle Spanish format: DD.MM.YYYY)
-   - Clean numeric columns (Spanish format: comma as decimal, dot as thousands)
-   - Select relevant columns (Date, OHLC prices)
+---
 
-2. **Calculate EPU Features**
-   - `ΔEPU`: Daily change in EPU
-   - `EPU_MA30`: 30-day moving average
-   - `EPU_Std30`: 30-day rolling standard deviation
+### `02_china_assets_cleaning_and_preparation.ipynb`
 
-3. **Calculate Asset Features**
-   - **Log returns**: `log(Close_t / Close_{t-1})`
-   - **Rolling volatility**: 7-day, 30-day, 90-day windows (std of returns)
+**Purpose**: Merge China EPU (CNEPU) and CSI 300 index data into a monthly dataset.
 
-4. **Merge Datasets**
-   - Inner join on Date (only dates with all 4 datasets)
-   - Sort by date
-   - Final date range determined by overlap
+**Input**:
+- `data/raw/cepu-mainland-papers.xlsx` — China EPU (1949–present, monthly)
+- `data/raw/csi300-daily.csv` — CSI 300 (2005–present, daily)
 
-5. **Data Quality Checks**
-   - Missing value analysis
-   - Outlier detection
-   - Date continuity verification
-   - Negative volatility check
+**Output**: `data/processed/cepu_csi300_merged.csv` — 17 columns, ~240 monthly observations
 
-**Features Created**:
+**Processing Steps**:
+1. Load CEPU from Excel, parse year/month columns
+2. Load CSI 300 daily data, aggregate to monthly (average, last, first, max, min)
+3. Calculate monthly returns, volatility, rolling volatility (3m, 6m)
+4. Calculate CNEPU features: `ΔCNEPU`, `CNEPU_MA12`, `CNEPU_Std12`
+5. Merge on year-month → unified monthly dataframe
+6. Data quality validation
 
-| Category | Features | Count |
-|----------|----------|-------|
-| EPU | `EPU`, `ΔEPU`, `EPU_MA30`, `EPU_Std30` | 4 |
-| S&P 500 | `SP500_Close`, `SP500_Open`, `SP500_High`, `SP500_Low`, `SP500_Return`, `SP500_Vol7d`, `SP500_Vol30d`, `SP500_Vol90d` | 8 |
-| Gold | `Gold_Close`, `Gold_Open`, `Gold_High`, `Gold_Low`, `Gold_Return`, `Gold_Vol7d`, `Gold_Vol30d`, `Gold_Vol90d` | 8 |
-| Bitcoin | `BTC_Close`, `BTC_Open`, `BTC_High`, `BTC_Low`, `BTC_Return`, `BTC_Vol7d`, `BTC_Vol30d`, `BTC_Vol90d` | 8 |
-| **Total** | | **29** |
+**Key difference from US pipeline**: CSI 300 daily data is aggregated to monthly frequency to match the CEPU series, which is only available monthly.
 
-**Missing Values**:
-- First 1 row: Returns (lag 1)
-- First 7 rows: 7-day volatility
-- First 30 rows: 30-day volatility and EPU features
-- First 90 rows: 90-day volatility
+---
 
-**Visualizations**:
-- EPU and asset volatilities over time
-- Correlation heatmap for key features
+## Feature Summary
+
+| Pipeline | Output | Frequency | Features | Observations |
+|----------|--------|-----------|----------|--------------|
+| US (01) | `usepu_assets_daily_features.csv` | Daily | 29 | ~2,200 |
+| China (02) | `cepu_csi300_merged.csv` | Monthly | 17 | ~240 |
 
 ## Data Dictionary
 
@@ -70,11 +60,12 @@ See [`data/processed/README.md`](../../data/processed/README.md) for detailed fe
 
 ## Next Steps
 
-After running this notebook:
-1. **Phase 2**: Exploratory analysis in `notebooks/exploratory/merged/us_uncertainty_markets/`
+After running these notebooks:
+1. **Phase 2**: Exploratory analysis in `notebooks/exploratory/merged/`
 2. **Phase 3**: Model training in `notebooks/training/`
 
 ---
 
 **Created**: 2026-02-10  
-**Status**: Complete and tested
+**Updated**: 2026-02-11  
+**Status**: Both pipelines complete and tested

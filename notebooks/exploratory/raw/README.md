@@ -1,6 +1,6 @@
 # Exploratory Data Analysis - Notebooks
 
-This directory contains exploratory data analysis (EDA) notebooks for all datasets in the `datasets/raw` directory.
+This directory contains exploratory data analysis (EDA) notebooks for all datasets in the `data/raw` directory.
 
 ## Overview
 
@@ -54,32 +54,22 @@ All notebooks follow a consistent structure:
 - **Citation**: Rogers, Sun, and Sun (2024), U.S.-China Tension, Working paper
 
 ### 05. CEPU China Mainland (`05_cepu_china_mainland_exploration.ipynb`)
-- **Dataset**: `cepu-china-mainland-paper.xlsx` → **Converts to CSV**
+- **Dataset**: `cepu-mainland-papers.xlsx` → **Converts to CSV**
 - **Description**: Monthly China Economic Policy Uncertainty from mainland newspapers (1949-present)
 - **Key Features**:
-  - **Excel to CSV conversion** (saves to `datasets/raw/cepu-china-mainland-paper.csv`)
+  - **Excel to CSV conversion** (saves to `data/raw/cepu-china-mainland.csv`)
   - Historical EPU analysis from 1949
   - Decadal analysis
   - Key historical events identification
   - ~900 monthly observations
 - **Source**: Economic Policy Uncertainty in China Since 1949: The View from Mainland Newspapers, by Steven J. Davis, Dingqian Liu and Xuguang S. Sheng, 2019
 
-### 06. CNEPU Daily (`06_cnepu_daily_exploration.ipynb`)
-- **Dataset**: `cnepu-daily.xlsx` → **Converts to CSV**
-- **Description**: Daily China News-based Economic Policy Uncertainty (2000-present)
-- **Key Features**:
-  - **Excel to CSV conversion** (saves to `datasets/raw/cnepu-daily.csv`)
-  - Daily EPU analysis
-  - Moving averages (30-day, 365-day)
-  - Yearly patterns
-  - Key events identification
-  - ~9,000 daily observations
 
-### 07. Migration Fear Index (`07_migration_fear_exploration.ipynb`)
+### 06. Migration Fear Index (`06_migration_fear_exploration.ipynb`)
 - **Dataset**: `migration-fear.xlsx` → **Converts to CSV**
 - **Description**: Quarterly migration-related EPU and fear indices for UK, Germany, USA, and France (1990-present)
 - **Key Features**:
-  - **Excel to CSV conversion** (saves to `datasets/raw/migration-fear.csv`)
+  - **Excel to CSV conversion** (saves to `data/raw/migration-fear.csv`)
   - Multi-country comparative analysis
   - EPU Migrant Index tracking
   - Fear Index tracking
@@ -87,7 +77,7 @@ All notebooks follow a consistent structure:
   - Country-by-country analysis
   - ~140 quarterly observations per country
 
-### 08. Bitcoin Daily (`08_btc_daily_exploration.ipynb`)
+### 07. Bitcoin Daily (`07_btc_daily_exploration.ipynb`)
 - **Dataset**: `btc-daily.csv`
 - **Description**: Daily Bitcoin price data (Spanish format) from 2013 to present
 - **Key Features**:
@@ -102,7 +92,7 @@ All notebooks follow a consistent structure:
   - Total return calculation
   - ~4,415 trading days (12+ years of data)
 
-### 09. Gold Daily (`09_gold_daily_exploration.ipynb`)
+### 08. Gold Daily (`08_gold_daily_exploration.ipynb`)
 - **Dataset**: `gold-daily.csv`
 - **Description**: Daily gold price data (Spanish format) from 2005 to present
 - **Key Features**:
@@ -118,13 +108,12 @@ All notebooks follow a consistent structure:
 
 ## Excel to CSV Conversions
 
-Three notebooks include automatic conversion from Excel to CSV format:
+Two notebooks include automatic conversion from Excel to CSV format:
 
 | Notebook | Excel File | Output CSV File |
 |----------|-----------|-----------------|
-| 05 | `cepu-china-mainland-paper.xlsx` | `cepu-china-mainland-paper.csv` |
-| 06 | `cnepu-daily.xlsx` | `cnepu-daily.csv` |
-| 07 | `migration-fear.xlsx` | `migration-fear.csv` |
+| 05 | `cepu-mainland-papers.xlsx` | `cepu-china-mainland.csv` |
+| 06 | `migration-fear.xlsx` | `migration-fear.csv` |
 
 **Note**: The CSV files are automatically saved to the `data/raw` directory when you run the respective notebooks.
 
@@ -136,7 +125,7 @@ pip install pandas numpy matplotlib seaborn openpyxl
 ```
 
 ### Execution Order
-You can run the notebooks in any order. However, if you want to generate CSV files from Excel datasets, run notebooks 05, 06, and 07 first.
+You can run the notebooks in any order. However, if you want to generate CSV files from Excel datasets, run notebooks 05 and 06 first.
 
 ### Jupyter Lab/Notebook
 ```bash
@@ -158,7 +147,6 @@ jupyter notebook
 | S&P 500 Daily | CSV | Daily | 2020-present | ~5,000 | OHLC + Volume |
 | US-China Tension | CSV | Monthly | 1993-2024 | ~376 | 1 index |
 | CEPU China Mainland | XLSX→CSV | Monthly | 1949-present | ~900 | 1 index |
-| CNEPU Daily | XLSX→CSV | Daily | 2000-present | ~9,000 | 1 index |
 | Migration Fear | XLSX→CSV | Quarterly | 1990-present | ~140 | 8 indices (4 countries × 2 types) |
 | **Bitcoin Daily** | CSV | Daily | 2013-present | ~4,415 | OHLC + Volume |
 | **Gold Daily** | CSV | Daily | 2005-present | ~4,966 | OHLC + Volume |
@@ -214,5 +202,5 @@ After exploring the datasets, you can:
 ---
 
 **Created**: 2026-02-03  
-**Last Updated**: 2026-02-04 (Added Bitcoin and Gold Daily datasets)  
+**Last Updated**: 2026-02-11  
 **Author**: Automated EDA Pipeline

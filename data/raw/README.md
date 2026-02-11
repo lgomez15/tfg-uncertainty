@@ -10,7 +10,7 @@ This directory contains the original, immutable datasets used in the TFG Uncerta
 | CSI 300 Daily | `csi300-daily.csv` | CSV | ~5,000 | 2005-present |
 | S&P 500 Daily | `sp500-daily.csv` | CSV | ~5,000 | 2020-present |
 | US-China Tension | `us-china-tension.csv` | CSV | ~376 | 1993-2024 |
-| CEPU China Mainland | `cepu-china-mainland-paper.xlsx` | Excel | ~900 | 1949-present |
+| CEPU China Mainland | `cepu-mainland-papers.xlsx` | Excel | ~900 | 1949-present |
 | Migration Fear | `migration-fear.xlsx` | Excel | ~140 | 1990-present |
 | Bitcoin Daily | `btc-daily.csv` | CSV | ~4,415 | 2013-present |
 | Gold Daily | `gold-daily.csv` | CSV | ~4,966 | 2005-present |
@@ -99,7 +99,7 @@ This directory contains the original, immutable datasets used in the TFG Uncerta
 
 ## 5. China Economic Policy Uncertainty (CEPU) - Mainland
 
-**File**: `cepu-china-mainland-paper.xlsx`
+**File**: `cepu-mainland-papers.xlsx`
 
 **Description**: Monthly China Economic Policy Uncertainty index constructed from mainland Chinese newspapers, covering the period from 1949 to present.
 
@@ -194,7 +194,7 @@ All exploratory notebooks include automatic cleaning functions to convert these 
 
 ### Excel to CSV Conversion
 Some datasets are provided in Excel format (`.xlsx`). The corresponding exploratory notebooks automatically convert these to CSV format for easier processing:
-- `cepu-china-mainland-paper.xlsx` → `cepu-china-mainland-paper.csv`
+- `cepu-mainland-papers.xlsx` → `cepu-china-mainland.csv`
 - `migration-fear.xlsx` → `migration-fear.csv`
 
 ### Volume Suffixes
@@ -252,5 +252,5 @@ All datasets in this directory are:
 
 ---
 
-**Last Updated**: 2026-02-10  
+**Last Updated**: 2026-02-11  
 **Maintained by**: TFG Uncertainty Analysis Project
