@@ -49,7 +49,7 @@ The project analyzes **8 datasets** covering uncertainty indices and market perf
 - **Bitcoin Daily** (2013–present): Cryptocurrency price data
 - **Gold Daily** (2005–present): Precious metal price data
 
-📄 **See [`data/raw/README.md`](data/raw/README.md) for detailed dataset descriptions, citations, and sources.**
+**See [`data/raw/README.md`](data/raw/README.md) for detailed dataset descriptions, citations, and sources.**
 
 ## Processed Data
 
@@ -60,7 +60,7 @@ Two processed datasets are generated from the Phase 1 cleaning pipelines:
 | `usepu_assets_daily_features.csv` | Daily | ~2,200 | US EPU + S&P 500 + Gold + Bitcoin (29 cols) |
 | `cepu_csi300_merged.csv` | Monthly | ~240 | China EPU + CSI 300 (17 cols) |
 
-📄 **See [`data/processed/README.md`](data/processed/README.md) for feature dictionaries and usage examples.**
+**See [`data/processed/README.md`](data/processed/README.md) for feature dictionaries and usage examples.**
 
 ## Exploratory Notebooks
 
@@ -75,7 +75,7 @@ Two processed datasets are generated from the Phase 1 cleaning pipelines:
 7. `07_btc_daily_exploration.ipynb` — Bitcoin Price Analysis
 8. `08_gold_daily_exploration.ipynb` — Gold Price Analysis
 
-📄 **See [`notebooks/exploratory/raw/README.md`](notebooks/exploratory/raw/README.md) for detailed notebook documentation.**
+**See [`notebooks/exploratory/raw/README.md`](notebooks/exploratory/raw/README.md) for detailed notebook documentation.**
 
 ### Merged Analyses (`notebooks/exploratory/merged/`)
 
@@ -90,7 +90,7 @@ Combines China EPU and CSI 300 to analyze the relationship between Chinese econo
 | `01_china_uncertainty_markets_analysis.ipynb` | Academic | Pearson+Spearman, crisis lines, subperiod analysis |
 | `02_AI_china_uncertainty_markets_analysis.ipynb` | Applied | Scatter+regression, Granger causality, shock analysis |
 
-📄 **See [`notebooks/exploratory/merged/china_uncertainty_markets/README.md`](notebooks/exploratory/merged/china_uncertainty_markets/README.md)**
+**See [`notebooks/exploratory/merged/china_uncertainty_markets/README.md`](notebooks/exploratory/merged/china_uncertainty_markets/README.md)**
 
 #### 2. US Uncertainty & Markets
 
@@ -101,13 +101,13 @@ Combines US EPU, S&P 500, Bitcoin, and Gold to study how US economic policy unce
 | `01_us_uncertainty_markets_analysis.ipynb` | Applied | Scatter+regression, Granger causality, shock analysis |
 | `02_AI_us_uncertainty_markets_analysis.ipynb` | Academic | Pearson+Spearman, crisis lines, subperiod analysis |
 
-📄 **See [`notebooks/exploratory/merged/us_uncertainty_markets/README.md`](notebooks/exploratory/merged/us_uncertainty_markets/README.md)**
+**See [`notebooks/exploratory/merged/us_uncertainty_markets/README.md`](notebooks/exploratory/merged/us_uncertainty_markets/README.md)**
 
 #### 3. Geopolitics Monthly
 
 Monthly-level analysis of geopolitical tensions and their impact on global markets and uncertainty indices.
 
-📄 **See [`notebooks/exploratory/merged/geopolitics_monthly/README.md`](notebooks/exploratory/merged/geopolitics_monthly/README.md)**
+**See [`notebooks/exploratory/merged/geopolitics_monthly/README.md`](notebooks/exploratory/merged/geopolitics_monthly/README.md)**
 
 ## Data Cleaning Pipelines
 
@@ -116,7 +116,7 @@ Monthly-level analysis of geopolitical tensions and their impact on global marke
 | `01_us_assets_cleaning_and_preparation.ipynb` | US EPU + S&P 500 + Gold + Bitcoin (raw) | `usepu_assets_daily_features.csv` |
 | `02_china_assets_cleaning_and_preparation.ipynb` | China EPU + CSI 300 (raw) | `cepu_csi300_merged.csv` |
 
-📄 **See [`notebooks/cleaning_and_preparation/README.md`](notebooks/cleaning_and_preparation/README.md)**
+**See [`notebooks/cleaning_and_preparation/README.md`](notebooks/cleaning_and_preparation/README.md)**
 
 ## Getting Started
 
