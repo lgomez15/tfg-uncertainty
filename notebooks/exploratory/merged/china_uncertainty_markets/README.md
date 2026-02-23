@@ -1,66 +1,58 @@
 # China Uncertainty & Markets Analysis
 
-## Overview
+## Scope
 
-This directory contains the **Phase 2 exploratory analysis** of relationships between China Economic Policy Uncertainty (CNEPU) and CSI 300 index volatility.
+Phase 2 exploratory analysis of China EPU (`CNEPU`) versus CSI 300 return/volatility dynamics.
 
-## Data
+## Data used
 
-**Input**: `data/processed/cepu_csi300_merged.csv`  
-**Frequency**: Monthly  
-**Date Range**: 2005–present (~240 observations)
-
-### Key Variables
-
-| Variable     | Description                           |
-| ------------ | ------------------------------------- |
-| `CNEPU`      | China EPU index (mainland newspapers) |
-| `ΔCNEPU`     | Monthly change in CNEPU               |
-| `CNEPU_MA12` | 12-month moving average               |
-| `CSI_Return` | CSI 300 monthly return                |
-| `CSI_Vol`    | CSI 300 monthly volatility            |
-| `CSI_Vol3m`  | 3-month rolling volatility            |
-| `CSI_Vol6m`  | 6-month rolling volatility            |
+- Input: `data/processed/cepu_csi300_merged.csv`
+- Frequency: Monthly
+- Rows: `247` (core complete cases: `246`)
+- Features: `17`
 
 ## Notebooks
 
 ### `01_china_uncertainty_markets_analysis.ipynb`
 
-**Style**: Academic / China-focused  
-Comprehensive monthly EDA with the following sections:
-
-1. **Data Overview** — Structure, missing values, temporal coverage
-2. **Time Series Visualisation** — CNEPU and CSI 300 with crisis vertical lines (2008 GFC, 2015 stock crash, COVID-19)
-3. **Distributions & Outliers** — Histograms, boxplots, skewness/kurtosis
-4. **Correlation Analysis** — Pearson & Spearman side-by-side heatmaps
-5. **Quintile Analysis** — CNEPU quintiles vs volatility/return bar plots
-6. **Lead-Lag Analysis** — Monthly lags 0–12 with best-lag annotation
-7. **Rolling Correlations** — 24-month and 36-month windows
-8. **Subperiod Analysis** — Structural robustness across 3 temporal regimes
-9. **EDA Conclusions** — Bullet-point synthesis of key patterns
+Academic-style workflow with:
+- descriptive diagnostics,
+- crisis-aware time-series inspection,
+- Pearson/Spearman correlation views,
+- lag and rolling-correlation analysis,
+- subperiod robustness checks.
 
 ### `02_AI_china_uncertainty_markets_analysis.ipynb`
 
-**Style**: US practical / applied  
-Same China monthly data analysed with the US notebook's methodology:
+Applied-style workflow with:
+- static + scatter correlation blocks,
+- quintile and shock regime analysis,
+- lagged correlations + Granger tests,
+- summary table for modeling guidance.
 
-1. **Data Loading** — Quality checks and missing values
-2. **Descriptive Statistics** — Summary stats, skewness/kurtosis table, distribution histograms
-3. **Temporal Analysis** — Time series plots, rolling correlations (12m/24m)
-4. **Correlation Analysis** — Static heatmap, scatter plots with OLS regression lines
-5. **Quantile Analysis** — CNEPU/ΔCNEPU quintile stratification, shock analysis (90th percentile)
-6. **Lead-Lag Analysis** — Lagged correlations (0–12 months), **Granger causality tests** (up to 6 lags)
-7. **Key Findings Summary** — Quantitative summary + modelling recommendations
+## Quantitative findings snapshot
 
-## Key Insights
+From saved notebook outputs:
 
-- **CNEPU–Volatility association**: Positive correlation between CNEPU and CSI 300 volatility, varying across subperiods
-- **Non-linear effects**: Higher CNEPU quintiles show disproportionately elevated volatility
-- **Lead-lag structure**: CNEPU may contain leading information for CSI 300 volatility at monthly horizons
-- **Regime dependence**: Rolling correlations reveal crisis-driven strengthening of the association
+- Full-sample correlations:
+	- `Corr(CNEPU, CSI_Vol) = -0.3214`
+	- `Corr(CNEPU, CSI_Vol3m) = -0.2448`
+	- `Corr(CNEPU, CSI_Vol6m) = -0.3234`
+	- `Corr(ΔCNEPU, CSI_Vol) = 0.0010`
 
----
+- Best lag (CNEPU → CSI_Vol):
+	- `12` months, `r = -0.3911`
 
-**Created**: 2026-02-11  
-**Input**: `data/processed/cepu_csi300_merged.csv`  
-**Status**: Complete — two complementary EDA perspectives
+- Regime contrast (CNEPU quintiles):
+	- mean `CSI_Vol` in Q1: `0.017115`
+	- mean `CSI_Vol` in Q5: `0.011184`
+	- ratio Q5/Q1: `0.65x`
+
+- Shock-share (applied notebook):
+	- `25` months (`10.1%`), with lower volatility than normal months in this sample.
+
+## Interpretation note
+
+In this dataset version, the CNEPU-volatility relationship is predominantly **negative** in static and lagged summaries, so any modeling assumptions of a positive sign should be tested explicitly out-of-sample.
+
+Last updated: 2026-02-23

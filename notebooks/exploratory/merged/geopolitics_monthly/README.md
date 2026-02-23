@@ -1,26 +1,24 @@
 # Geopolitics Monthly Analysis
 
-## Overview
+## Scope
 
-This directory is reserved for **Phase 2 exploratory analysis** of geopolitical tensions and their impact on global markets and uncertainty indices at a monthly frequency.
+Reserved subproject for monthly geopolitical-risk analysis and market transmission effects.
 
-## Planned Scope
+## Intended inputs
 
-- **US-China Tension Index** (`us-china-tension.csv`) — Monthly bilateral tension (1993–2024)
-- **Migration Fear Index** (`migration-fear.xlsx`) — Quarterly migration-related EPU for UK, Germany, USA, France
-- Cross-referencing with market indices (CSI 300, S&P 500) to study geopolitical risk transmission
+- `data/raw/us-china-tension.csv` (monthly)
+- `data/raw/migration-fear.csv` / `data/raw/migration-fear.xlsx` (quarterly source panel)
+- optional joins with market series from processed datasets
 
-## Current Status
+## Current status
 
-🔲 **Not yet started** — No notebooks have been created in this directory.
+- No analysis notebooks have been added yet in this folder.
+- This README defines scope and expected dependencies only.
 
-### Prerequisites
+## Suggested implementation order
 
-Before creating notebooks here, ensure:
-1. Individual explorations are complete (`notebooks/exploratory/raw/04_us_china_tension_exploration.ipynb`, `06_migration_fear_exploration.ipynb`)
-2. A corresponding cleaning/preparation pipeline exists in `notebooks/cleaning_and_preparation/`
+1. Standardize target frequency (monthly) and define merge keys.
+2. Build a preparation notebook for geopolitics-specific features.
+3. Add exploratory notebook(s): descriptive, correlation, lag/lead, subperiod checks.
 
----
-
-**Created**: 2026-02-11  
-**Status**: Planned — awaiting implementation
+Last updated: 2026-02-23
