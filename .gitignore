@@ -159,3 +159,6 @@ data/processed/
 models/*.pkl
 models/*.h5
 logs/*.log
+
+# Ignore generated text files
+/stuff
