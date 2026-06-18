@@ -1,5 +1,7 @@
 # US Uncertainty & Markets Analysis
 
+> **Nota.** Esta carpeta corresponde a la fase exploratoria inicial (datos diarios, periodo 2014-2023, no comparable con China). El análisis definitivo del TFG, con el diseño unificado 2014-2025 para los dos países, está en `notebooks/training/03_analisis_incertidumbre_volatilidad.ipynb`. Las cifras de este README pertenecen a esa fase anterior y están superadas.
+
 ## Scope
 
 Phase 2 exploratory analysis of US Economic Policy Uncertainty (EPU) versus volatility in S&P 500, Gold, and Bitcoin.

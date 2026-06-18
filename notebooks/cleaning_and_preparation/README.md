@@ -44,13 +44,35 @@ Main transformations:
 3. monthly return/volatility features (`CSI_Vol`, `CSI_Vol3m`, `CSI_Vol6m`),
 4. merged monthly panel aligned on year-month.
 
+---
+
+### `03_unified_panels_2014_2025.ipynb` (current pipeline)
+
+Purpose:
+- Build the **unified monthly panels** used in the TFG, with the **same period and the same assets for both countries** (2014-2025, monthly). Fixes the comparability problem of `01`/`02` (different periods, asymmetric assets).
+
+Inputs:
+- `data/raw/us-epu-daily.csv`, `data/raw/cepu-china-mainland.csv`
+- `data/raw/sp500-daily-yahoo.csv`, `data/raw/gold-daily.csv`, `data/raw/btc-daily.csv`, `data/raw/csi300-daily.csv`
+
+Outputs (`data/processed/`):
+- `panel_usa_mensual.csv`, `panel_china_mensual.csv`
+- `rendimientos_mensuales.csv`, `rendimientos_diarios.csv`
+
+Main transformations: daily log returns, monthly realized volatility (std of daily returns within each month), monthly EPU/CNEPU, and an inner join on the common months (139 months).
+
 ## Current outputs
 
-| Pipeline | Output file | Frequency | Rows | Columns |
-|----------|-------------|-----------|------|---------|
-| US | `usepu_assets_daily_features.csv` | Daily | 2227 | 29 |
-| China | `cepu_csi300_merged.csv` | Monthly | 247 | 17 |
+| Pipeline | Output file | Frequency | Rows |
+|----------|-------------|-----------|------|
+| US (current) | `panel_usa_mensual.csv` | Monthly | 139 |
+| China (current) | `panel_china_mensual.csv` | Monthly | 139 |
+| Returns (current) | `rendimientos_mensuales.csv` / `rendimientos_diarios.csv` | Monthly / Daily | — |
+| US (legacy) | `usepu_assets_daily_features.csv` | Daily | 2227 |
+| China (legacy) | `cepu_csi300_merged.csv` | Monthly | 247 |
+
+Notebook `03` produces the current, comparable datasets used in the TFG; `01`/`02` are the earlier (non-comparable) design, kept for reference.
 
 Detailed schema: [`data/processed/README.md`](../../data/processed/README.md)
 
-Last updated: 2026-02-23
+Last updated: 2026-06-18

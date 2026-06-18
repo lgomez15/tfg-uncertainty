@@ -10,7 +10,8 @@ This directory stores source datasets used across cleaning and exploratory noteb
 |---------|------|-----------|-------|
 | US EPU | `us-epu-daily.csv` | Daily | Economic Policy Uncertainty (US) |
 | CSI 300 | `csi300-daily.csv` | Daily | Chinese equity index OHLC/volume |
-| S&P 500 | `sp500-daily.csv` | Daily | OHLC/volume, Spanish numeric format |
+| S&P 500 (current) | `sp500-daily-yahoo.csv` | Daily | Close prices to 2025 (Yahoo Finance); used by the current pipeline (notebook 03) |
+| S&P 500 (legacy) | `sp500-daily.csv` | Daily | OHLC/volume, Spanish numeric format; ends 2023-11 |
 | Bitcoin | `btc-daily.csv` | Daily | OHLC/volume, Spanish numeric format |
 | Gold | `gold-daily.csv` | Daily | OHLC/volume, Spanish numeric format |
 | US-China Tension | `us-china-tension.csv` | Monthly | Bilateral tension index |
@@ -28,6 +29,7 @@ This directory stores source datasets used across cleaning and exploratory noteb
 
 ### Spanish number/date formatting
 Some market files (`sp500-daily.csv`, `btc-daily.csv`, `gold-daily.csv`) contain:
+<!-- nota: sp500-daily-yahoo.csv viene en formato simple Date,Close (no requiere este tratamiento) -->
 - comma decimal separators,
 - dot thousands separators,
 - locale-specific date formatting.
@@ -54,6 +56,6 @@ Raw-source exploratory notebooks:
 - Economic Policy Uncertainty project: https://www.policyuncertainty.com/
 - Rogers, Sun, and Sun (2024): US-China Tension index
 - Davis, Liu, and Sheng (2019): China EPU from mainland newspapers
-- Public market data providers (e.g., Investing.com / Yahoo Finance)
+- Public market data providers: Investing.com (oro, Bitcoin, CSI 300) y Yahoo Finance (S&P 500 actualizado)
 
-Last updated: 2026-02-23
+Last updated: 2026-06-18

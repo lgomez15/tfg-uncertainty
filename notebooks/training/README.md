@@ -46,6 +46,24 @@ This directory contains model-oriented notebooks that extend the exploratory pha
 - 5-step ahead forecasts
 - Hold-out visualization block (30-observation split)
 
+---
+
+### 3) `03_analisis_incertidumbre_volatilidad.ipynb` (current analysis)
+
+**Title:** Incertidumbre y volatilidad: cuatro preguntas
+
+**Purpose:**
+- Current, definitive analysis on the **unified monthly panels** (2014-2025, both countries, index + gold + Bitcoin).
+- Organized around four research questions: (1) correlation EPU-volatility (Pearson/Spearman), (2) uncertainty-regime quintiles, (3) Granger causality, (4) GARCH(1,1) conditional volatility.
+
+**Inputs:**
+- `data/processed/panel_usa_mensual.csv`, `panel_china_mensual.csv`, `rendimientos_mensuales.csv`, `rendimientos_diarios.csv`
+
+**Main outputs:**
+- Figures in `reports/figures/` and a results summary in `reports/resultados.json`.
+
+> Notebooks `01`/`02` belong to the earlier design (daily, non-comparable periods, with ARCH-LM, drawdowns, etc.). The current TFG uses **notebook 03**, which prunes the analysis to four well-justified techniques.
+
 ## Execution Notes
 
 - Recommended order:
@@ -64,5 +82,6 @@ Both notebooks include a fallback installation attempt for `arch` when missing.
 - These notebooks are **Phase 3 (training/modeling-oriented)** and build on:
   - data engineering outputs from `notebooks/cleaning_and_preparation/`
   - exploratory findings from `notebooks/exploratory/merged/`
+- The **current** modeling lives in `03_analisis_incertidumbre_volatilidad.ipynb`, on the unified panels from `03_unified_panels_2014_2025.ipynb`.
 
-Last updated: 2026-02-23
+Last updated: 2026-06-18

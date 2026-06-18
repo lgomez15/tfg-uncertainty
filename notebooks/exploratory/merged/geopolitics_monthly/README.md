@@ -1,5 +1,7 @@
 # Geopolitics Monthly Analysis
 
+> **Nota.** La dimensión geopolítica no forma parte de la versión actual del TFG (se descartó para centrar el trabajo en la incertidumbre económica y la resiliencia financiera). Carpeta conservada solo como posible línea de trabajo futura.
+
 ## Scope
 
 Reserved subproject for monthly geopolitical-risk analysis and market transmission effects.
