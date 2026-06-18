@@ -155,10 +155,23 @@ cython_debug/
 .DS_Store
 
 # Data and Models (Keep structure, ignore content if too large)
-data/processed/
+# Se ignora el contenido derivado de data/processed/, pero SE CONSERVAN las series
+# que la tutora debe poder verificar (paneles y rendimientos del pipeline).
+data/processed/*
+!data/processed/README.md
+!data/processed/panel_usa_mensual.csv
+!data/processed/panel_china_mensual.csv
+!data/processed/rendimientos_mensuales.csv
+!data/processed/rendimientos_diarios.csv
 models/*.pkl
 models/*.h5
 logs/*.log
 
 # Ignore stuff text files
 /stuff
+
+# Generación del documento del TFG (texto y maquetación): no va al repositorio
+redaccion/
+
+# Salidas derivadas (figuras y resultados): se regeneran ejecutando los notebooks
+reports/
